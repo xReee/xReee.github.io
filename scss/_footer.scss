@@ -1,93 +1,119 @@
-.footer{
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url(../img/banner/footer_bg.png);
-    p{
-        font-family: $font2 !important;
-    }
-    .footer_top{
-        padding-top: 145px;
-        padding-bottom: 129px;
-        @media #{$mobile_device} {
-            padding-top: 60px;
-            padding-bottom: 30px;
-        }
-        .lets_talk{
-            h3{
-                font-size: 46px;
-                margin-bottom: 20px;
-                color: #fff;
-                @media #{$mobile_device} {
-                    font-size: 28px;
-                    margin-bottom: 20px;
-                }
-                @media #{$tablet_device} {
-                    font-size: 40px;
-                }
-                @media #{$mid_device} {
-                    font-size: 38px;
-                }
-                a{
-                    color: #DB9A64;
-                }
-            }
-            p{
-                font-size:16px ;
-                line-height: 28px;
-                color: #fff;
-            }
-            margin-bottom: 95px;
-        }
-        .single_links{
-            border: 1px solid #7A5444;
-            padding:25px 30px;
-            cursor: pointer;
-            @include transition(.3s);
-            @media #{$mobile_device}{
-                margin-bottom: 10px;
-            }
-            @media #{$tablet_device}{
-                padding: 25px 10px;
-            }
-            span{
-                color: #fff;
-                font-size: 24px;
-                font-weight: 400;
-            }
-            a{
-                @include transition(.3s);
-                i{
-                    color: #DB9A64;
-                    font-size: 20px;
-                }
-            }
-            &:hover{
-                background: #CCAD85;
-                border: 1px solid #CCAD85;
-                color: #fff;
-                a{
-                    i{
-                        color: #fff;
-                    }
-                }
-            }
-        }
-    }
-    .copy-right_text{
-        padding-bottom: 30px;
-        .copy_right{
-            font-size: 14px;
-            color: #919191;
-            margin-bottom: 0;
-            font-weight: 500;
-            @media #{$mobile_device} {
-                font-size: 13px;
-            }
-            a{
-                color: #DB9A64;
-            }
-        }
-    }
+/* Footer Area css
+============================================================================================ */
+.footer_area{
+	background: #000;
 }
+.footer_inner{
+	
+}
+.f_widget{}
+.f_title{
+	margin-bottom: 35px;
+	h3{
+		color: #fff;
+		font-size: 18px;
+		font-weight: bold;
+		font-family: $hee;
+		margin-bottom: 0px;
+	}
+}
+.ab_widget{
+	p{
+		font-size: 14px;
+		line-height: 24px;
+		font-family: $rob;
+		color: $pfont;
+		margin-bottom: 30px;
+		a{
+			color: $baseColor;
+		}
+		& + p{
+			margin-bottom: 0px;
+		}
+	}
+}
+.news_widget{
+	padding-right: 15px;
+	p{
+		font-size: 14px;
+		line-height: 24px;
+		font-family: $rob;
+		color: $pfont;
+		margin-bottom: 15px;
+	}
+	.input-group{
+		input{
+			height: 40px;
+			background: transparent;
+			border-radius: 0px;
+			width: 80%;
+			border: none;
+			padding: 0px 15px;
+			border: 1px solid #1e233b;
+			font-size: 14px;
+			font-family: $rob;
+			color: #cccccc;
+			outline: none;
+			box-shadow: none;
+			@include placeholder{
+				font-size: 14px;
+				font-family: $rob;
+				font-weight: normal;
+				color: #cccccc;
+			}
+		}
+		.sub-btn{
+			border-radius: 0px;
+			background-image: -moz-linear-gradient( 0deg, rgb(118,109,255) 0%, rgb(136,243,255) 100%);
+			background-image: -webkit-linear-gradient( 0deg, rgb(118,109,255) 0%, rgb(136,243,255) 100%);
+			background-image: -ms-linear-gradient( 0deg, rgb(118,109,255) 0%, rgb(136,243,255) 100%);
+			outline: none !important;
+			box-shadow: none !important;
+			padding: 0px;
+			border: none;
+			width: 42px;
+			cursor: pointer;
+			color: #fff;
+		}
+	}
+}
+.social_widget{
+	p{
+		font-size: 14px;
+		line-height: 24px;
+		font-family: $rob;
+		color: $pfont;
+		margin-bottom: 10px;
+	}
+	.list{
+		li{
+			margin-right: 17px;
+			display: inline-block;
+			a{
+				color: #cccccc;
+				font-size: 14px;
+				@include transition;
+			}
+			&:last-child{
+				margin-right: 0px;
+			}
+			&:hover{
+				a{
+					color: $baseColor;
+				}
+			}
+		}
+	}
+}
+.copy_right_text{
+	text-align: center;
+	margin-top: 60px;
+	p{
+		a{
+			color: $baseColor;
+		}
+	}
+}
+
+/* End Footer Area css
+============================================================================================ */
