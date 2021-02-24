@@ -213,6 +213,7 @@ input:focus {
 	left: 234px;
 	position: absolute;
 	top: 452px;
+	transition: all 0.2s ease;
 	transform: rotate(180deg);
 	width: 63px;
 }
@@ -224,6 +225,7 @@ input:focus {
 	left: 453px;
 	position: absolute;
 	top: 455px;
+	transition: all 0.2s ease;
 	transform: rotate(180deg);
 	width: 63px;
 }
@@ -235,6 +237,7 @@ input:focus {
 	left: 672px;
 	position: absolute;
 	top: 458px;
+	transition: all 0.2s ease;
 	transform: rotate(180deg);
 	width: 63px;
 }
@@ -251,7 +254,15 @@ input:focus {
 	transition: all 0.2s ease;
 	width: 63px;
 }
-
+.button-arrow-pos1:hover {
+	transform: translate(0, -5px);
+}
+.button-arrow-pos2:hover {
+	transform: translate(0, -5px);
+}
+.button-arrow-pos3:hover {
+	transform: translate(0, -5px);
+}
 .button-arrow-pos4:hover {
 	transform: translate(0, -5px);
 }
