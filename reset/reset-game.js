@@ -1,18 +1,14 @@
 var password = [];
 var userPassword = [0, 0, 0, 0];
-var cores = [
-    "rgb(255, 0, 0)",
-    "rgb(0, 0, 255)",
-    "rgb(255, 255, 0)",
-    "rgb(128, 0, 128)",
-    "rgb(0, 255, 0)",
-    "rgb(255, 165, 0)",
-  ];
 var answer = [];
+var lifeNumber = 3;
+var monsterNumber = 5;
+var rightAnwsers = 0
 
 var changeTool = function(elem) {
   var id = parseInt($(elem).attr("id").replace('n','')) - 1;
-  $(elem).css("background-color", cores[userPassword[id]]);
+  $(elem).children('#tool').attr("src","reset-assets/tools/arma"+ userPassword[id]+".svg");
+  console.log(userPassword[id]);
   userPassword[id] ++;
   if (userPassword[id] >= 6) userPassword[id] = 0;
 }
@@ -32,11 +28,29 @@ var generatePassword = function() {
   return newPassword;
 }
 
+function test() {
+  checkPassword();
+  if (rightAnwsers != 4) monsterNumber--;
+  if (monsterNumber == 0) {
+    $('#testButton').unbind();
+    $('.testButton').css({ opacity: 0.1});
+  }
+
+  updateLabel();
+}
+
+function atack() {
+  checkPassword();
+  if (rightAnwsers != 4) lifeNumber--;
+  if (lifeNumber == 0) {
+    $('#myModal1').modal('show');
+  }
+  updateLabel();
+}
+
 var checkPassword = function() {
   var rightAnwsers = 0;
   var rightColorWrongPositions = 0;
-  console.log(password);
-  console.log(userPassword);
   for(var i = 0; i <= 3; i++) {
     if (password[i] == userPassword[i]) {
       rightAnwsers++;
@@ -44,9 +58,9 @@ var checkPassword = function() {
       rightColorWrongPositions++;
     } 
   }
+  this.rightAnwsers = rightAnwsers
   speak(rightAnwsers, rightColorWrongPositions);
-  console.log(rightAnwsers);
-  console.log(rightColorWrongPositions);
+  
 }
 
 function speak(rightAnwsers, rightColorWrongPositions){
@@ -58,12 +72,20 @@ function speak(rightAnwsers, rightColorWrongPositions){
                       rightColorWrongPositions + rightColorWrongPositionsLabel);
 }
 
+function updateLabel() {
+  $(".monster-number").text(monsterNumber);
+  $(".life-number").text(lifeNumber);
+}
+
 $(document).ready(function() {
   password = generatePassword();
+  updateLabel();
 
   $(".slot").click(function(){
     changeTool(this);
   });
 
-  $(".testButton").click(checkPassword);
+  $("#testButton").click(test);
+  $("#atackButton").click(atack);
+  
 });
