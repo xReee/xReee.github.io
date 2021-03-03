@@ -43,6 +43,7 @@ function blink(elem) {
 
 function test() {
   checkPassword(false);
+  addGame();
   if (rightAnwsers != 4) {
     blink($("#monster"));
     monsterNumber--;
@@ -56,6 +57,7 @@ function test() {
 }
 
 function atack() {
+  addGame();
   blink($("#atackButton"));
   checkPassword(true);
   if (rightAnwsers != 4) {
@@ -151,14 +153,19 @@ function resetTests() {
 }
 
 function checkGameplay() {
-    $(".gameplay").append(`
-               <span class="row slot" id="n1"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
-               <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma1.svg"></span>
-               <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma2.svg"></span>
-               <span class="row slot" id="n4"><img id="tool" src="reset-assets/tools/arma3.svg"></span>
-    `);
+    $('#modal-gameplay').modal('show');
 }
 
+function addGame() {
+  $(".gameplay").append(`
+          <div class="row">
+               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+ userPassword[0]+`.svg"></span>
+               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[1]+`.svg"></span>
+               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[2]+`.svg"></span>
+               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[3]+`.svg"></span>
+          </div>
+    `);
+}
 
 $(document).ready(function() {
   resetGame();
@@ -168,6 +175,5 @@ $(document).ready(function() {
   });
 
   $("#atackButton").click(atack);
-  // $('#modal-gameplay').modal('show');
-  checkGameplay();
+  $("#jogadas").click(checkGameplay);
 });

@@ -53,6 +53,17 @@ body {
 	text-align: center;
 }
 
+.gameplay-slot {
+    background-color: var(--teak);
+	border-radius: 30px;
+	height: 70px;
+	display: inline-block;
+	width: 100px;
+    padding-top: 1%;
+	margin-right: 2%;
+    margin-top: 10px;
+}
+
 .slot {
 	background-color: var(--teak);
 	border-radius: 30px;
