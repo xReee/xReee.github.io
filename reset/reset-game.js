@@ -12,10 +12,10 @@ var changeTool = function(elem) {
   var shouldContinue = true;
 
   while (shouldContinue) {
-    newPassword++
-    if (newPassword > 5) newPassword = 0
+    newPassword++;
+    if (newPassword > 5) newPassword = 0;
     if (!arrayWithoutOldValue.includes(newPassword)) {
-      userPassword[id] = newPassword
+      userPassword[id] = newPassword;
       shouldContinue = false;
     }
   }
@@ -48,8 +48,7 @@ function test() {
     monsterNumber--;
   } 
   if (monsterNumber == 0) {
-
-    $('#testButton').unbind();
+    $('#testButton').unbind('click', test);
     $('#testButton').css({ opacity: 0.1});
   }
 
@@ -64,8 +63,7 @@ function atack() {
      blink($("#heart"));
   }
   if (lifeNumber == 0) {
-    $('#modal-gameover').modal('show');
-    resetGame();
+    lostGame();
   } else if (monsterNumber == 0) {
     resetTests();
   }
@@ -95,7 +93,7 @@ function speak(rightAnwsers, rightColorWrongPositions, isAtack) {
     var rightColorWrongPositionsLabel = " arma correta está no slot errado";
     if (rightAnwsers != 1) rightAnwsersLabel = " armas nas posições corretas";
     if (rightColorWrongPositions != 1) rightColorWrongPositionsLabel = " armas corretas estão no slot errado!";
-    $(".speach").html("Hmmm.. <b>Resultado do teste</b>: você acertou " + rightAnwsers + rightAnwsersLabel + "! Tirando isso, " + 
+    $(".speach").html("<b>Resultado do teste</b>: você acertou " + rightAnwsers + rightAnwsersLabel + "! Tirando isso, " + 
                       rightColorWrongPositions + rightColorWrongPositionsLabel);
     $(".speach").addClass('bubble-bottom-left').removeClass('bubble-bottom-right');
   }
@@ -115,6 +113,20 @@ function resetTools() {
   }
 }
 
+function winGame() {
+  $("#modal-title").html("Parabéns!!!");
+  $("#modal-subtitle").html("Você acertou todas as armas e derrotou o monstro!!!");
+  $('#modal-gameover').modal('show');
+  resetGame();
+}
+
+function lostGame() {
+  $("#modal-title").html("Você perdeu!!");
+  $("#modal-subtitle").html("Tente novamente, você consegue!!");
+  $('#modal-gameover').modal('show');
+  resetGame();
+}
+
 function resetGame() {
   password = generatePassword();
   lifeNumber = 3;
@@ -124,13 +136,29 @@ function resetGame() {
   updateMenuNumbers();
   resetTools();
   resetTests();
+  resetSpeach()
+}
+
+function resetSpeach() {
+  $(".speach").html("Hmm.. melhor testar primeiro!");
+  $(".speach").addClass('bubble-bottom-left').removeClass('bubble-bottom-right');
 }
 
 function resetTests() {
   monsterNumber = 5;
-  $("#testButton").click(test);
+  $("#testButton").bind('click', test);
   $('.testButton').css({ opacity: 1});
 }
+
+function checkGameplay() {
+    $(".gameplay").append(`
+               <span class="row slot" id="n1"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
+               <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma1.svg"></span>
+               <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma2.svg"></span>
+               <span class="row slot" id="n4"><img id="tool" src="reset-assets/tools/arma3.svg"></span>
+    `);
+}
+
 
 $(document).ready(function() {
   resetGame();
@@ -139,6 +167,7 @@ $(document).ready(function() {
     changeTool(this);
   });
 
-  
-
+  $("#atackButton").click(atack);
+  // $('#modal-gameplay').modal('show');
+  checkGameplay();
 });
