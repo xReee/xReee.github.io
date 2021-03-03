@@ -17,13 +17,13 @@
    </head>
 
    <body>
-      <div class="container">
+      <div class="container main">
          <div class="row justify-content-md-center">
             <div class="col-6 game-board">
                <span class="row slot" id="n1"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
-               <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
-               <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
-               <span class="row slot" id="n4"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
+               <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma1.svg"></span>
+               <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma2.svg"></span>
+               <span class="row slot" id="n4"><img id="tool" src="reset-assets/tools/arma3.svg"></span>
             </div>
             <div class="col-sm-auto">
                <span class="row thumbnail text-center">
@@ -33,7 +33,7 @@
                   </div>
                </span>
                <span class="row thumbnail text-center">
-                  <img class="menu-image mg-responsive" src="reset-assets/menu/monster.svg">
+                  <img class="menu-image mg-responsive" id="monster" src="reset-assets/menu/monster.svg">
                   <div class="image-caption" style="top: 30%;">
                      <p class="monster-number">1</p>
                </div>
@@ -52,13 +52,22 @@
             </div>
          </div>
 
-         <div class="row speach">
-            <p class = "speach">Testar</p>
+         <div class="row justify-content-md-center">
+            <div class = "col-md-3">
+               <img class="npc" id= "target" src="reset-assets/npc/target.svg">
+            </div>
+            <div class = "col-md-4">
+               <div class="bubble bubble-bottom-left speach" contenteditable> Hmm.. melhor testar primeiro!</div>
+            </div>
+            <div class = "col-md-3">
+               <img class="npc" id= "goblin" src="reset-assets/npc/goblin.svg">
+            </div>
          </div>
+
 
       </div>
 
-      <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modal-gameover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog">
            <div class="modal-content">
              <div class="modal-header">
