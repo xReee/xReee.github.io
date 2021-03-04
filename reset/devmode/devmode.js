@@ -20,7 +20,7 @@ var changeTool = function(elem) {
     }
   }
   userPassword[id] = newPassword 
-  $(elem).children('#tool').attr("src","reset-assets/tools/arma"+ userPassword[id]+".svg");
+  $(elem).children('#tool').attr("src","devmode-assets/tools/arma"+ userPassword[id]+".svg");
   blink(elem);
 }
 
@@ -34,6 +34,7 @@ var generatePassword = function() {
       newPassword[i] = number;
     }
   }
+  console.log(newPassword);
   return newPassword;
 }
 
@@ -52,6 +53,7 @@ function test() {
     $('#testButton').unbind('click', test);
     $('#testButton').css({ opacity: 0.1});
   }
+  console.log(userPassword);
   updateMenuNumbers();
 }
 
@@ -90,18 +92,23 @@ var checkPassword = function(isAtack) {
 
 function speak(rightAnwsers, rightColorWrongPositions, isAtack) {
   if (isAtack == true) {
-    $(".speach").text("Hehe! Você errou, -1 de vida!");
+    $(".speach").text("SEU APP CRASHOU, -1 usuário utilizando seu app!");
     $(".speach").addClass('bubble-bottom-right').removeClass('bubble-bottom-left');
   } else {
-    var rightAnwsersLabel = " arma na posição correta";
-    var rightColorWrongPositionsLabel = " arma correta está no slot errado";
     $(".speach").addClass('bubble-bottom-left').removeClass('bubble-bottom-right');
-
+    var numberName = ["Zero","Um","Dois","Tres"]
     if (rightAnwsers != 4) {
-      if (rightAnwsers != 1) rightAnwsersLabel = " armas nas posições corretas";
-      if (rightColorWrongPositions != 1) rightColorWrongPositionsLabel = " armas corretas estão no slot errado!";
-      $(".speach").html("<b>Resultado do teste</b>: você acertou " + rightAnwsers + rightAnwsersLabel + "! Tirando isso, " + 
-                        rightColorWrongPositions + rightColorWrongPositionsLabel);
+      $(".speach").html("");
+        for (i=0;i<4;i++) {
+          $(".speach").append("Testando se espião.posicao"+numberName[i]+ " é igual a " +userPassword[i] + "<br>");
+        }
+      
+      var rightAnwsersLabel = " teste passou!";
+      var rightColorWrongPositionsLabel = " valor correto está na posição errada";
+      if (rightAnwsers != 1) rightAnwsersLabel = " testes passaram";
+      if (rightColorWrongPositions != 1) rightColorWrongPositionsLabel = " valores corretos estão nas posições erradas!";
+      $(".speach").append("<b>Relatório: " + rightAnwsers + rightAnwsersLabel + "! Tirando isso, " + 
+                        rightColorWrongPositions + rightColorWrongPositionsLabel + "</b>");
     } else {
       $(".speach").html("UAUUUU! <b>Você acertou todas!</b> Você já pode atacar!")
     }
@@ -116,20 +123,20 @@ function updateMenuNumbers() {
 
 function resetTools() {
   for (var i = 1; i <= 4; i++) {
-    $("#n" + i).children('#tool').attr("src","reset-assets/tools/arma"+ userPassword[i - 1] +".svg");
+    $("#n" + i).children('#tool').attr("src","devmode-assets/tools/arma"+ userPassword[i - 1] +".svg");
   }
 }
 
 function winGame() {
   $("#modal-title").html("Parabéns!!!");
-  $("#modal-subtitle").html("Você acertou todas as armas e derrotou o monstro!!!");
+  $("#modal-subtitle").html("Todos seus testes passaram! Seu app está pronto pro deploy!");
   $('#modal-gameover').modal('show');
   resetGame();
 }
 
 function lostGame() {
-  $("#modal-title").html("Você perdeu!!");
-  $("#modal-subtitle").html("Tente novamente, você consegue!!");
+  $("#modal-title").html("CRASHOU!");
+  $("#modal-subtitle").html("Seu app crashou tanto que você perdeu todos seus usuários!! Tente novamente, você consegue!!");
   $('#modal-gameover').modal('show');
   resetGame();
 }
@@ -144,7 +151,6 @@ function resetGame() {
   resetTools();
   resetTests();
   resetSpeach()
-  $(".gameplay").html("");
 }
 
 function resetSpeach() {
@@ -165,16 +171,17 @@ function checkGameplay() {
 function addGame() {
   $(".gameplay").append(`
           <div class="row">
-               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+ userPassword[0]+`.svg"></span>
-               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[1]+`.svg"></span>
-               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[2]+`.svg"></span>
-               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[3]+`.svg"></span>
+               <span class="col-md-2 gameplay-slot"><img id="tool" src="devmode-assets/tools/arma`+ userPassword[0]+`.svg"></span>
+               <span class="col-md-2 gameplay-slot"><img id="tool" src="devmode-assets/tools/arma`+userPassword[1]+`.svg"></span>
+               <span class="col-md-2 gameplay-slot"><img id="tool" src="devmode-assets/tools/arma`+userPassword[2]+`.svg"></span>
+               <span class="col-md-2 gameplay-slot"><img id="tool" src="devmode-assets/tools/arma`+userPassword[3]+`.svg"></span>
           </div>
     `);
 }
 
 $(document).ready(function() {
   resetGame();
+  
 
   $(".slot").click(function(){
     changeTool(this);

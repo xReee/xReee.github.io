@@ -11,29 +11,29 @@
          <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
 
          <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-         <script id="script-normal-game" src="reset-game.js"></script>
-         <link rel="stylesheet" href="reset-game.css">
-         <title>Reset Test</title>
+         <script id="script-normal-game" src="devmode.js"></script>
+         <link rel="stylesheet" href="devmode.css">
+         <title>[devmode] Reset Test</title>
    </head>
 
    <body>
       <div class="container main">
          <div class="row justify-content-md-center">
             <div class="col-6 game-board">
-               <span class="row slot" id="n1"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
-               <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma1.svg"></span>
-               <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma2.svg"></span>
-               <span class="row slot" id="n4"><img id="tool" src="reset-assets/tools/arma3.svg"></span>
+               <span class="row slot" id="n1"><img id="tool" src="devmode-assets/tools/arma0.svg"></span>
+               <span class="row slot" id="n2"><img id="tool" src="devmode-assets/tools/arma1.svg"></span>
+               <span class="row slot" id="n3"><img id="tool" src="devmode-assets/tools/arma2.svg"></span>
+               <span class="row slot" id="n4"><img id="tool" src="devmode-assets/tools/arma3.svg"></span>
             </div>
             <div class="col-sm-auto">
                <span class="row thumbnail text-center">
-                  <img class="menu-image img-responsive" id="heart" src="reset-assets/menu/heart.svg">
+                  <img class="menu-image img-responsive" id="heart" src="devmode-assets/menu/heart.svg">
                   <div class="image-caption" style="top: 20%;">
                      <p class="life-number">1</p>
                   </div>
                </span>
                <span class="row thumbnail text-center">
-                  <img class="menu-image mg-responsive" id="monster" src="reset-assets/menu/monster.svg">
+                  <img class="menu-image mg-responsive" id="monster" src="devmode-assets/menu/monster.svg">
                   <div class="image-caption" style="top: 30%;">
                      <p class="monster-number">1</p>
                </div>
@@ -48,22 +48,22 @@
                <p>Testar</p>
             </div>
             <div class = "hovicon effect-4 sub-b col-md-4 offset-md-2" id="atackButton">
-               <p>Atacar</p>
+               <p>Deploy</p>
             </div>
             <div class = "hovicon effect-4 sub-b col-md-4 offset-md-2" id="jogadas">
-               <p>Jogadas</p>
+               <p>Histórico</p>
             </div>
          </div>
 
          <div class="row justify-content-md-center">
             <div class = "col-md-3">
-               <img class="npc" id= "target" src="reset-assets/npc/target.svg">
+               <img class="npc" id= "target" src="devmode-assets/npc/target.svg">
             </div>
             <div class = "col-md-4">
                <div class="bubble bubble-bottom-left speach" contenteditable> Hmm.. melhor testar primeiro!</div>
             </div>
             <div class = "col-md-3">
-               <img class="npc" id= "goblin" src="reset-assets/npc/goblin.svg">
+               <img class="npc" id= "goblin" src="devmode-assets/npc/goblin.svg">
             </div>
          </div>
       </div>
@@ -72,11 +72,11 @@
          <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                <div class="modal-body">
-                  <h5 class="modal-title display-4" id="modal-title">Você perdeu!!</h5>
+                  <h5 class="modal-title display-4" id="modal-title">Seu app crashou tanto que você perdeu todos seus usuários!!</h5>
                   <h5 id="modal-subtitle">Tente novamente, você consegue!!</h5>
               </div>
               <div class="modal-footer">
-                  <input type="button devmode" class="btn btn-light" onclick="location.href='devmode/devmode.html';" value="Modo desenvolvedor"/>
+                  <input type="button devmode" class="btn btn-light" onclick="location.href='../index.html';" value="Modo jogador"/>
                   <button type="button restart" class="btn btn-success" data-dismiss="modal">Recomeçar</button>
               </div>
             </div>
@@ -87,7 +87,7 @@
          <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                <div class="modal-body">
-                  <h5 class="modal-title display-4">Jogadas:</h5>
+                  <h5 class="modal-title display-4">Últimos testes:</h5>
                   <div class="gameplay container"></div>
               </div>
               <div class="modal-footer">
