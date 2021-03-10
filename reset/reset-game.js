@@ -3,9 +3,11 @@ var userPassword = [0, 1, 2, 3];
 var answer = [];
 var lifeNumber = 3;
 var monsterNumber = 5;
-var rightAnwsers = 0
+var rightAnwsers = 0;
+var rightColorWrongPositions = 0;
 
 var changeTool = function(elem) {
+  deslockutton();
   var id = parseInt($(elem).attr("id").replace('n','')) - 1;
   var arrayWithoutOldValue = userPassword.filter(item => item !== id)
   var newPassword = userPassword[id]
@@ -43,6 +45,7 @@ function blink(elem) {
 
 function test() {
   checkPassword(false);
+  lockButtons();
   addGame();
   if (rightAnwsers != 4) {
     blink($("#monster"));
@@ -57,7 +60,7 @@ function test() {
 
 function atack() {
   addGame();
-  blink($("#atackButton"));
+  lockButtons();
   checkPassword(true);
   if (rightAnwsers != 4) {
     lifeNumber--;
@@ -74,6 +77,24 @@ function atack() {
   }
 }
 
+function lockButtons() {
+  $('#testButton').prop("disabled",true);
+  $('#atackButton').prop("disabled",true);
+
+  $('#testButton').css({ opacity: 0.1});
+  $('#atackButton').css({ opacity: 0.1});
+  $(".shouldSelectTool").css({ opacity: 1});
+}
+
+function deslockutton(){
+  $('#testButton').prop("disabled",false);
+  $('#atackButton').prop("disabled",false);
+
+  $('#testButton').css({ opacity: 1});
+  $('#atackButton').css({ opacity: 1});
+  $(".shouldSelectTool").css({ opacity: 0});
+}
+
 var checkPassword = function(isAtack) {
   var rightAnwsers = 0;
   var rightColorWrongPositions = 0;
@@ -84,7 +105,8 @@ var checkPassword = function(isAtack) {
       rightColorWrongPositions++;
     } 
   }
-  this.rightAnwsers = rightAnwsers
+  this.rightAnwsers = rightAnwsers;
+  this.rightColorWrongPositions = rightColorWrongPositions;
   speak(rightAnwsers, rightColorWrongPositions, isAtack);
 }
 
@@ -145,6 +167,7 @@ function resetGame() {
   resetTests();
   resetSpeach()
   $(".gameplay").html("");
+  $(".shouldSelectTool").css({ opacity: 0});
 }
 
 function resetSpeach() {
@@ -164,17 +187,29 @@ function checkGameplay() {
 
 function addGame() {
   $(".gameplay").append(`
-          <div class="row">
-               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+ userPassword[0]+`.svg"></span>
-               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[1]+`.svg"></span>
-               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[2]+`.svg"></span>
-               <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[3]+`.svg"></span>
+          <div class="row results">
+                <div class="div-transparent"></div>
+                <h4>Corretos: `+ rightAnwsers +` • Corretos na posição errada: `+ rightColorWrongPositions +` • Jogada:</h4>
+                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+ userPassword[0]+`.svg"></span>
+                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[1]+`.svg"></span>
+                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[2]+`.svg"></span>
+                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[3]+`.svg"></span>
           </div>
     `);
 }
 
+$(document).keypress(function(event){
+  var keycode = (event.keyCode ? event.keyCode : event.which);
+  console.log(keycode);
+  if(keycode == '97') {
+    $("#modal-tutorial").modal('show');
+  }
+});
+
 $(document).ready(function() {
   resetGame();
+
+  $("#modal-tutorial").modal('show');
 
   $(".slot").click(function(){
     changeTool(this);

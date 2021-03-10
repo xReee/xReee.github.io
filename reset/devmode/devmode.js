@@ -6,6 +6,7 @@ var monsterNumber = 5;
 var rightAnwsers = 0
 
 var changeTool = function(elem) {
+  deslockutton();
   var id = parseInt($(elem).attr("id").replace('n','')) - 1;
   var arrayWithoutOldValue = userPassword.filter(item => item !== id)
   var newPassword = userPassword[id]
@@ -34,7 +35,6 @@ var generatePassword = function() {
       newPassword[i] = number;
     }
   }
-  console.log(newPassword);
   return newPassword;
 }
 
@@ -43,6 +43,7 @@ function blink(elem) {
 }
 
 function test() {
+  lockButtons();
   checkPassword(false);
   addGame();
   if (rightAnwsers != 4) {
@@ -53,13 +54,12 @@ function test() {
     $('#testButton').unbind('click', test);
     $('#testButton').css({ opacity: 0.1});
   }
-  console.log(userPassword);
   updateMenuNumbers();
 }
 
 function atack() {
+  lockButtons();
   addGame();
-  blink($("#atackButton"));
   checkPassword(true);
   if (rightAnwsers != 4) {
     lifeNumber--;
@@ -74,6 +74,22 @@ function atack() {
   } else {
     winGame();
   }
+}
+
+function lockButtons() {
+  $('#testButton').unbind('click', test);
+  $('#atackButton').unbind('click', atack);
+
+  $('#testButton').css({ opacity: 0.1});
+  $('#atackButton').css({ opacity: 0.1});
+}
+
+function deslockutton(){
+  $('#testButton').bind('click', test);
+  $('#atackButton').bind('click', atack);
+
+  $('#testButton').css({ opacity: 1});
+  $('#atackButton').css({ opacity: 1});
 }
 
 var checkPassword = function(isAtack) {
@@ -181,8 +197,6 @@ function addGame() {
 
 $(document).ready(function() {
   resetGame();
-  
-
   $(".slot").click(function(){
     changeTool(this);
   });

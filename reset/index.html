@@ -9,13 +9,11 @@
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
          <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
-
          <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
          <script id="script-normal-game" src="reset-game.js"></script>
          <link rel="stylesheet" href="reset-game.css">
          <title>Reset Test</title>
    </head>
-
    <body>
       <div class="container main">
          <div class="row justify-content-md-center">
@@ -24,6 +22,7 @@
                <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma1.svg"></span>
                <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma2.svg"></span>
                <span class="row slot" id="n4"><img id="tool" src="reset-assets/tools/arma3.svg"></span>
+               <h1 class="shouldSelectTool"> Altere as armas para continuar</h1> 
             </div>
             <div class="col-sm-auto">
                <span class="row thumbnail text-center">
@@ -36,13 +35,10 @@
                   <img class="menu-image mg-responsive" id="monster" src="reset-assets/menu/monster.svg">
                   <div class="image-caption" style="top: 30%;">
                      <p class="monster-number">1</p>
-               </div>
+                  </div>
                </span>
-              
             </div>
          </div>
-         
-            
          <div class="row justify-content-md-center">
             <div class = "hovicon effect-4 sub-b col-md-4 testButton" id="testButton">
                <p>Testar</p>
@@ -54,48 +50,96 @@
                <p>Jogadas</p>
             </div>
          </div>
-
          <div class="row justify-content-md-center">
             <div class = "col-md-3">
                <img class="npc" id= "target" src="reset-assets/npc/target.svg">
             </div>
             <div class = "col-md-4">
-               <div class="bubble bubble-bottom-left speach" contenteditable> Hmm.. melhor testar primeiro!</div>
+               <div class="bubble bubble-bottom-left speach"> Hmm.. melhor testar primeiro!</div>
             </div>
             <div class = "col-md-3">
                <img class="npc" id= "goblin" src="reset-assets/npc/goblin.svg">
             </div>
          </div>
       </div>
-
       <div class="modal fade" id="modal-gameover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                <div class="modal-body">
                   <h5 class="modal-title display-4" id="modal-title">Você perdeu!!</h5>
                   <h5 id="modal-subtitle">Tente novamente, você consegue!!</h5>
-              </div>
-              <div class="modal-footer">
+               </div>
+               <div class="modal-footer">
                   <input type="button devmode" class="btn btn-light" onclick="location.href='devmode/devmode.html';" value="Modo desenvolvedor"/>
                   <button type="button restart" class="btn btn-success" data-dismiss="modal">Recomeçar</button>
-              </div>
+               </div>
             </div>
-          </div>
-       </div>
-
-       <div class="modal fade" id="modal-gameplay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         </div>
+      </div>
+      <div class="modal fade" id="modal-gameplay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                <div class="modal-body">
                   <h5 class="modal-title display-4">Jogadas:</h5>
-                  <div class="gameplay container"></div>
-              </div>
-              <div class="modal-footer">
+                  <div class="gameplay"></div>
+               </div>
+               <div class="modal-footer">
                   <button type="button restart" class="btn btn-success" data-dismiss="modal">Continuar</button>
-              </div>
+               </div>
             </div>
-          </div>
-       </div>
-
+         </div>
+      </div>
+      <div class="modal fade" id="modal-tutorial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+               <div class = "modal-header">
+                  <div style="display: absolute;">
+                     <h4 class="modal-title display-4">Bem vindo ao treinamento, recruta!</h4>
+                     <b>OBS: para abrir o tutorial (essa tela) aperte a tecla a</b>
+                  </div>
+               </div>
+               <div class="modal-body">
+                  <div class = "col-md-12">
+                     <h3>O treinamento é o seguinte:</h3>
+                     <p> 
+                        ➸  Temos um goblin capturado aqui, vamos segurar ele enquanto você treina <br>
+                        ➸  Você pode treinar no nosso saco de batatas, vamos te dar dicas de como melhorar (mas não a resposta!) <br>
+                        ➸  Depois de<b> cinco </b>testes, acreditamos que você está apto para atacar de verdade! <br> 
+                        ➸  Mas cuidado, voce só tem <b>três</b> chances de atacar corretamente!! <br>
+                     </p>
+                     <div class = "col-md-2">
+                        <img src="reset-assets/menu/monster.svg"> 
+                     </div>
+                     <div class = "col-md-3">
+                        <p>  Esse aqui é o  simbolo que indica a quantidade de testes que você tem.</p>
+                     </div>
+                     <div class = "col-md-2">
+                        <img src="reset-assets/menu/heart.svg"> 
+                     </div>
+                     <div class = "col-md-3">
+                        <p>  Esse aqui é o simbolo que indica a quantidade de ataques que  você tem.</p>
+                     </div>
+                  </div>
+                  <div class = "col-md-8">
+                     <h3> Como atacar?  </h3>
+                     <p> 
+                        ➸  Você precisa acerta uma combinação de 4 armas (tipo essa ali no lado) <br>
+                        ➸  Para mudar a arma, basta clicar em cima dela <br>
+                        ➸  Você precisa acertar não só as armas, mas também a posição correta delas <br> 
+                        ➸  Quando você for testar, daremos uma dica do que pode estar errado.
+                     </p>
+                  </div>
+                  <div class = "col-md-2">
+                     <div class = "col-md-2">
+                        <img src="reset-assets/tools/arma0.svg" style="height: 180px"> 
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button restart" class="btn btn-success" data-dismiss="modal">Estou pronto!</button>
+               </div>
+            </div>
+         </div>
+      </div>
    </body>
 </html>
