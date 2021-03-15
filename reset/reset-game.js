@@ -5,7 +5,7 @@ var lifeNumber = 3;
 var monsterNumber = 5;
 var rightAnwsers = 0;
 var rightColorWrongPositions = 0;
-var devMode = false;
+var devMode = true;
 
 var changeTool = function(elem) {
   deslockutton();
