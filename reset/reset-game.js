@@ -109,7 +109,7 @@ var checkPassword = function(isAtack) {
 
 function speak(rightAnwsers, rightColorWrongPositions, isAtack) {
   if (isAtack == true) {
-    $(".speach").text("Hehe! Você errou, perdeu 1 ponto de vida! Agora você só tem mais " + lifeNumber + " pontos de vida!");
+    $(".speach").text("Hehe! Você errou, perdeu 1 ponto de vida! Agora você só tem mais " + lifeNumber-1 + " pontos de vida!");
     $(".speach").addClass('bubble-bottom-right').removeClass('bubble-bottom-left');
   } else {
     $(".speach").addClass('bubble-bottom-left').removeClass('bubble-bottom-right');
