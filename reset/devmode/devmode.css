@@ -129,7 +129,7 @@ top: 40px;
 }
   
 .npc {
-    height: 60%;
+    height: 75%;
     width: auto;
 }
 
@@ -244,4 +244,28 @@ p {
 .btn-success:hover {
     background-color: var(--hot-toddy);
     border: 0px;
+}
+
+.shouldSelectTool {
+    opacity: 0;
+    color: var(--papaya-whip);
+}
+
+.results {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.div-transparent {
+    height: 1px;
+	position: absolute;
+	left: 5%;
+	right: 5%;
+	width: 90%;
+	height: 1px;
+	background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
+}
+
+p {
+    font-size: 20px;
 }

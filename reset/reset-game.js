@@ -5,6 +5,7 @@ var lifeNumber = 3;
 var monsterNumber = 5;
 var rightAnwsers = 0;
 var rightColorWrongPositions = 0;
+var devMode = false;
 
 var changeTool = function(elem) {
   deslockutton();
@@ -79,19 +80,15 @@ function atack() {
 
 function lockButtons() {
   $('#testButton').prop("disabled",true);
-  $('#atackButton').prop("disabled",true);
 
   $('#testButton').css({ opacity: 0.1});
-  $('#atackButton').css({ opacity: 0.1});
   $(".shouldSelectTool").css({ opacity: 1});
 }
 
 function deslockutton(){
   $('#testButton').prop("disabled",false);
-  $('#atackButton').prop("disabled",false);
 
   $('#testButton').css({ opacity: 1});
-  $('#atackButton').css({ opacity: 1});
   $(".shouldSelectTool").css({ opacity: 0});
 }
 
@@ -112,14 +109,13 @@ var checkPassword = function(isAtack) {
 
 function speak(rightAnwsers, rightColorWrongPositions, isAtack) {
   if (isAtack == true) {
-    $(".speach").text("Hehe! Você errou, -1 de vida!");
+    $(".speach").text("Hehe! Você errou, perdeu 1 ponto de vida! Agora você só tem mais " + lifeNumber + " pontos de vida!");
     $(".speach").addClass('bubble-bottom-right').removeClass('bubble-bottom-left');
   } else {
-    var rightAnwsersLabel = " arma na posição correta";
-    var rightColorWrongPositionsLabel = " arma correta está no slot errado";
     $(".speach").addClass('bubble-bottom-left').removeClass('bubble-bottom-right');
-
     if (rightAnwsers != 4) {
+      var rightAnwsersLabel = " arma na posição correta";
+      var rightColorWrongPositionsLabel = " arma correta está no slot errado";
       if (rightAnwsers != 1) rightAnwsersLabel = " armas nas posições corretas";
       if (rightColorWrongPositions != 1) rightColorWrongPositionsLabel = " armas corretas estão no slot errado!";
       $(".speach").html("<b>Resultado do teste</b>: você acertou " + rightAnwsers + rightAnwsersLabel + "! Tirando isso, " + 
@@ -208,11 +204,22 @@ $(document).keypress(function(event){
 
 $(document).ready(function() {
   resetGame();
-
+  $(".devLabel").css({ opacity: 0});
   $("#modal-tutorial").modal('show');
 
   $(".slot").click(function(){
     changeTool(this);
+  });
+
+  $(".btn-devMode").click(function() {
+    devMode = !devMode;
+    if (devMode) {
+      $(".btn-devMode").val('Desativar modo desenvolvedor')
+      $(".devLabel").css({ opacity: 1});
+    } else {
+      $(".btn-devMode").val('Modo desenvolvedor')
+      $(".devLabel").css({ opacity: 0});
+    }
   });
 
   $("#atackButton").click(atack);

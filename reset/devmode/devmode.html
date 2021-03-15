@@ -24,6 +24,7 @@
                <span class="row slot" id="n2"><img id="tool" src="devmode-assets/tools/arma1.svg"></span>
                <span class="row slot" id="n3"><img id="tool" src="devmode-assets/tools/arma2.svg"></span>
                <span class="row slot" id="n4"><img id="tool" src="devmode-assets/tools/arma3.svg"></span>
+               <h1 class="shouldSelectTool"> Altere os números para continuar</h1> 
             </div>
             <div class="col-sm-auto">
                <span class="row thumbnail text-center">
@@ -51,7 +52,7 @@
                <p>Deploy</p>
             </div>
             <div class = "hovicon effect-4 sub-b col-md-4 offset-md-2" id="jogadas">
-               <p>Histórico</p>
+               <p>Testes</p>
             </div>
          </div>
 
@@ -98,18 +99,52 @@
        </div>
 
        <div class="modal fade" id="modal-tutorial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered" role="document">
+         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
+               <div class = "modal-header">
+                  <div style="display: absolute;">
+                     <h4 class="modal-title display-4">Bem-vindo ao time, programador!</h4>
+                     <p><b>OBS: para abrir este tutorial aperte a tecla 'A'</b> </p>
+                  </div>
+               </div>
                <div class="modal-body">
-                  <h5 class="modal-title display-4">Bem vindo soldado!</h5>
-                  <div class="gameplay container"></div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button restart" class="btn btn-success" data-dismiss="modal">Continuar</button>
-              </div>
+                  <div class = "col-md-12">
+                     <h3>Aqui fazemos escrevemos os testes assim:</h3>
+                     <p> 
+                        ➸  Temos uma dependencia sendo utilizada na nossa classe, você precisa fazer testes unitários antes de mandar para deploy!<br>
+                        ➸  Você pode testar utilizando nosso espião de dependencias, ele vai te falar quais testes passaram (mas não por que não passou!) <br>
+                        ➸  Depois de<b> cinco </b>testes, vamos ter que fazer o deploy das novas features então garanta que não vai crashar! <br> 
+                        ➸  Mas cuidado, se crashar mais que <b>três</b> vezes, você vai perder todos nossos usuários!! <br>
+                     </p>
+                     <div class = "col-md-2">
+                        <img src="devmode-assets/menu/monster.svg"> 
+                     </div>
+                     <div class = "col-md-4">
+                        <p>  Esse aqui é o  simbolo que indica a quantidade de testes que você tem.</p>
+                     </div>
+                     <div class = "col-md-2">
+                        <img src="devmode-assets/menu/heart.svg"> 
+                     </div>
+                     <div class = "col-md-4">
+                        <p>  Esse aqui é o simbolo que indica a quantidade de deploys que você tem disponivel.</p>
+                     </div>
+                  </div>
+                  <div class = "col-md-12">
+                     <h3> Como funciona o deploy?  </h3>
+                     <p> 
+                        ➸  Você precisa acertar uma combinação de 4 números (que são as propriedades da dependencia) <br>
+                        ➸  Para mudar o número, basta clicar em cima dele.<br>
+                        ➸  Você precisa acertar não só os números, mas também a posição correta deles <br> 
+                        ➸  Quando você for testar, nosso espião vai falar o que pode estar errado.
+                     </p>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button restart" class="btn btn-success" data-dismiss="modal"><p>Estou pronto!</p></button>
+               </div>
             </div>
-          </div>
-       </div>
+         </div>
+      </div>
 
    </body>
 </html>

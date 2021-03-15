@@ -201,6 +201,8 @@ $(document).ready(function() {
     changeTool(this);
   });
 
+  $("#modal-tutorial").modal('show');
+
   $("#atackButton").click(atack);
   $("#jogadas").click(checkGameplay);
 });

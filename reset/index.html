@@ -18,6 +18,7 @@
       <div class="container main">
          <div class="row justify-content-md-center">
             <div class="col-6 game-board">
+               <h4 class="devLabel"> Given (dado que:) </h4> 
                <span class="row slot" id="n1"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
                <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma1.svg"></span>
                <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma2.svg"></span>
@@ -39,6 +40,7 @@
                </span>
             </div>
          </div>
+         <center><h4 class="devLabel"> When (quando:) </h4> </center>
          <div class="row justify-content-md-center">
             <div class = "hovicon effect-4 sub-b col-md-4 testButton" id="testButton">
                <p>Testar</p>
@@ -50,7 +52,8 @@
                <p>Jogadas</p>
             </div>
          </div>
-         <div class="row justify-content-md-center">
+         <center><h4 class="devLabel"> Then (então:) </h4> </center>
+         <div class="row justify-content-sm-center" style="height: 200px !important;">
             <div class = "col-md-3">
                <img class="npc" id= "target" src="reset-assets/npc/target.svg">
             </div>
@@ -61,6 +64,10 @@
                <img class="npc" id= "goblin" src="reset-assets/npc/goblin.svg">
             </div>
          </div>
+         <div class="row">
+            <input type="button devmode" class="btn btn-light btn-devMode" value="Modo desenvolvedor"/>
+         </div>
+         
       </div>
       <div class="modal fade" id="modal-gameover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered" role="document">
@@ -70,7 +77,6 @@
                   <h5 id="modal-subtitle">Tente novamente, você consegue!!</h5>
                </div>
                <div class="modal-footer">
-                  <input type="button devmode" class="btn btn-light" onclick="location.href='devmode/devmode.html';" value="Modo desenvolvedor"/>
                   <button type="button restart" class="btn btn-success" data-dismiss="modal">Recomeçar</button>
                </div>
             </div>
@@ -89,6 +95,7 @@
             </div>
          </div>
       </div>
+
       <div class="modal fade" id="modal-tutorial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -123,7 +130,7 @@
                   <div class = "col-md-8">
                      <h3> Como atacar?  </h3>
                      <p> 
-                        ➸  Você precisa acerta uma combinação de 4 armas (tipo essa ali no lado) <br>
+                        ➸  Você precisa acertar uma combinação de 4 armas (tipo essa ali no lado) <br>
                         ➸  Para mudar a arma, basta clicar em cima dela <br>
                         ➸  Você precisa acertar não só as armas, mas também a posição correta delas <br> 
                         ➸  Quando você for testar, daremos uma dica do que pode estar errado.
