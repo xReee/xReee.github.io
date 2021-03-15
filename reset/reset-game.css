@@ -269,5 +269,5 @@ p {
 }
 
 .devLabel {
-    color: wheat;
+    color: var(--papaya-whip);
 }
