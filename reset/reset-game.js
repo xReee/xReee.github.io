@@ -212,14 +212,18 @@ $(document).ready(function() {
   });
 
   $(".btn-devMode").click(function() {
-    devMode = !devMode;
     if (devMode) {
       $(".btn-devMode").val('Desativar modo desenvolvedor')
+      $("#target").attr("src","devmode/devmode-assets/npc/target.svg")
+      $("#goblin").attr("src","devmode/devmode-assets/npc/goblin.svg")
       $(".devLabel").css({ opacity: 1});
     } else {
       $(".btn-devMode").val('Modo desenvolvedor')
       $(".devLabel").css({ opacity: 0});
+      $("#target").attr("src","reset-assets/npc/target.svg")
+      $("#goblin").attr("src","reset-assets/npc/goblin.svg")
     }
+    devMode = !devMode;
   });
 
   $("#atackButton").click(atack);
