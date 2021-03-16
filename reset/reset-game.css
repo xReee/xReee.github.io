@@ -129,8 +129,12 @@ top: 40px;
 }
   
 .npc {
-    height: 100%;
+    height: 80%;
     width: auto;
+}
+
+#npc-board {
+    height: 0% !important; 
 }
 
 /* buttons test and atack */
