@@ -86,10 +86,11 @@ function lockButtons() {
 }
 
 function deslockutton(){
-  $('#testButton').prop("disabled",false);
-
-  $('#testButton').css({ opacity: 1});
-  $(".shouldSelectTool").css({ opacity: 0});
+  if (monsterNumber != 0) {
+    $('#testButton').prop("disabled",false);
+    $('#testButton').css({ opacity: 1});
+    $(".shouldSelectTool").css({ opacity: 0});
+  }
 }
 
 var checkPassword = function(isAtack) {
