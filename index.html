@@ -1,152 +1,28 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <head>
-         <meta charset="UTF-8">
-         <meta name="viewport" content="width=1440, maximum-scale=1.0">
-         <meta name="og:type" content="website">
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"/>
-         <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-         <script id="script-normal-game" src="reset-game.js"></script>
-         <link rel="stylesheet" href="reset-game.css">
-         <title>Gamut - Game</title>
-   </head>
-   <body>
-      <div class="container main">
-         <div class="row justify-content-md-center">
-            <div class="col-6 game-board">
-               <h4 class="devLabel"> Given </h4> 
-               <span class="row slot" id="n1"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
-               <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma1.svg"></span>
-               <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma2.svg"></span>
-               <span class="row slot" id="n4"><img id="tool" src="reset-assets/tools/arma3.svg"></span>
-               <h1 class="shouldSelectTool"> Change tools to continue</h1> 
-            </div>
-            <div class="col-sm-auto">
-               <span class="row thumbnail text-center">
-                  <img class="menu-image img-responsive" id="heart" src="reset-assets/menu/heart.svg">
-                  <div class="image-caption" style="top: 20%;">
-                     <p class="life-number">1</p>
-                  </div>
-               </span>
-               <span class="row thumbnail text-center">
-                  <img class="menu-image mg-responsive" id="monster" src="reset-assets/menu/monster.svg">
-                  <div class="image-caption" style="top: 30%;">
-                     <p class="monster-number">1</p>
-                  </div>
-               </span>
-            </div>
-         </div>
-         <center><h4 class="devLabel"> When </h4> </center>
-         <div class="row justify-content-md-center">
-            <div class = "hovicon effect-4 sub-b col-md-4 testButton" id="testButton">
-               <p>Test</p>
-            </div>
-            <div class = "hovicon effect-4 sub-b col-md-4 offset-md-2" id="atackButton">
-               <p>Atack</p>
-            </div>
-            <div class = "hovicon effect-4 sub-b col-md-4 offset-md-2" id="jogadas">
-               <p>History</p>
-            </div>
-         </div>
-         <center><h4 class="devLabel"> Then </h4> </center>
-         <div class="row justify-content-sm-center" row="npc-board">
-            <div class = "col-md-3">
-               <img class="npc" id= "target" src="reset-assets/npc/target.svg">
-            </div>
-            <div class = "col-md-4">
-               <div class="bubble bubble-bottom-left speach"> Hmm.. I think is better test first!</div>
-            </div>
-            <div class = "col-md-3">
-               <img class="npc" id= "goblin" src="reset-assets/npc/goblin.svg">
-            </div>
-         </div>
-         <div class="row">
-            <input type="button devmode" class="btn btn-light btn-devMode" value="Modo desenvolvedor" readonly/>
-         </div>
-         
-      </div>
-      <div class="modal fade" id="modal-gameover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-               <div class="modal-body">
-                  <h5 class="modal-title display-4" id="modal-title">You lose!!</h5>
-                  <h5 id="modal-subtitle">Try again, you can do it!!</h5>
-               </div>
-               <div class="modal-footer">
-                  <button type="button restart" class="btn btn-success" data-dismiss="modal">Restart</button>
-               </div>
-            </div>
-         </div>
-      </div>
-      <div class="modal fade" id="modal-gameplay" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-               <div class="modal-body">
-                  <h5 class="modal-title display-4">History:</h5>
-                  <div class="gameplay"></div>
-               </div>
-               <div class="modal-footer">
-                  <button type="button restart" class="btn btn-success" data-dismiss="modal">Continue</button>
-               </div>
-            </div>
-         </div>
-      </div>
 
-      <div class="modal fade" id="modal-tutorial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-               <div class = "modal-header">
-                  <div style="display: absolute;">
-                     <h4 class="modal-title display-4">Welcome to the training!</h4>
-                     <b>PS: to open it again, press A key</b>
-                  </div>
-               </div>
-               <div class="modal-body">
-                  <div class = "col-md-12">
-                     <h3>This is the training:</h3>
-                     <p> 
-                        ➸  We have a goblin we captured here. We are gonna hold him while you are training<br>
-                        ➸  You can train in our training dummy, we are gonna to give you feedbacks and you can improve your next attack <br>
-                        ➸  After<b> five </b>tests, we believe you are ready to atack for real! <br> 
-                        ➸  Be careful, you only have <b>three</b> chances to atack it correctly!! <br>
-                     </p>
-                     <div class = "col-md-2">
-                        <img src="reset-assets/menu/monster.svg"> 
-                     </div>
-                     <div class = "col-md-3">
-                        <p>  This is the symbol that shows the quantity of remaining tests.</p>
-                     </div>
-                     <div class = "col-md-2">
-                        <img src="reset-assets/menu/heart.svg"> 
-                     </div>
-                     <div class = "col-md-3">
-                        <p>  This is the symbol that shows the quantity of remaining attacks.</p>
-                     </div>
-                  </div>
-                  <div class = "col-md-8">
-                     <h3> How attack?  </h3>
-                     <p> 
-                        ➸  You need to discover the combination of 4 tools (there is an example over there) <br>
-                        ➸  To change the tool, just click on it <br>
-                        ➸  You need to discover also the position of each correct tool<br> 
-                        ➸  When you test your attck, you will see a tip of what's correct.
-                     </p>
-                  </div>
-                  <div class = "col-md-2">
-                     <div class = "col-md-2">
-                        <img src="reset-assets/tools/arma0.svg" style="height: 180px"> 
-                     </div>
-                  </div>
-               </div>
-               <div class="modal-footer">
-                  <button type="button restart" class="btn btn-success" data-dismiss="modal">I'm ready!</button>
-               </div>
-            </div>
-         </div>
-      </div>
-   </body>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Renata Faria</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+    <div id="rainbow"></div>
+    <img id="userPhoto" src="https://avatars2.githubusercontent.com/u/18575717?s=460&u=6bdd204bd817fc911aae9f5085e17122dc826835&v=4" alt="User Photo">
+    <a href="https://www.instagram.com/xreefaria/" id="userName">@xreefaria</a>
+    <div id="links">
+        <a class="link" href="http://linkedin.com/in/renatafariagomes/" target="_blank">Linkedin</a>
+        <a class="link" href="http://xReee.github.io/reset/pt/index.html/" target="_blank">Jogo reset - PT</a>
+        <a class="link" href="http://xReee.github.io/reset/eng/index.html/" target="_blank">Reset Game - ENG</a>
+
+    </div>
+
+
+    <!-- Javascript -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script  src="index.js"></script>
+</body>
 </html>
