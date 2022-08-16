@@ -23,7 +23,7 @@ var changeTool = function(elem) {
     }
   }
   userPassword[id] = newPassword 
-  $(elem).children('#tool').attr("src","reset-assets/tools/arma"+ userPassword[id]+".svg");
+  $(elem).children('#tool').attr("src","reset-assets/elements/"+ userPassword[id]+".svg");
   blink(elem);
 }
 
@@ -135,7 +135,7 @@ function updateMenuNumbers() {
 
 function resetTools() {
   for (var i = 1; i <= 4; i++) {
-    $("#n" + i).children('#tool').attr("src","reset-assets/tools/arma"+ userPassword[i - 1] +".svg");
+    $("#n" + i).children('#tool').attr("src","reset-assets/elements/"+ userPassword[i - 1] +".svg");
   }
 }
 
@@ -187,10 +187,10 @@ function addGame() {
           <div class="row results">
                 <div class="div-transparent"></div>
                 <h4>Corretos: `+ rightAnwsers +` • Corretos na posição errada: `+ rightColorWrongPositions +` • Jogada:</h4>
-                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+ userPassword[0]+`.svg"></span>
-                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[1]+`.svg"></span>
-                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[2]+`.svg"></span>
-                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/tools/arma`+userPassword[3]+`.svg"></span>
+                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/elements/`+ userPassword[0]+`.svg"></span>
+                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/elements/`+userPassword[1]+`.svg"></span>
+                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/elements/`+userPassword[2]+`.svg"></span>
+                <span class="col-md-2 gameplay-slot"><img id="tool" src="reset-assets/elements/`+userPassword[3]+`.svg"></span>
           </div>
     `);
 }

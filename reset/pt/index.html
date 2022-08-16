@@ -19,10 +19,10 @@
          <div class="row justify-content-md-center">
             <div class="col-6 game-board">
                <h4 class="devLabel"> Given (dado que:) </h4> 
-               <span class="row slot" id="n1"><img id="tool" src="reset-assets/tools/arma0.svg"></span>
-               <span class="row slot" id="n2"><img id="tool" src="reset-assets/tools/arma1.svg"></span>
-               <span class="row slot" id="n3"><img id="tool" src="reset-assets/tools/arma2.svg"></span>
-               <span class="row slot" id="n4"><img id="tool" src="reset-assets/tools/arma3.svg"></span>
+               <span class="row slot" id="n1"><img id="tool" src="reset-assets/elements/0.svg"></span>
+               <span class="row slot" id="n2"><img id="tool" src="reset-assets/elements/1.svg"></span>
+               <span class="row slot" id="n3"><img id="tool" src="reset-assets/elements/2.svg"></span>
+               <span class="row slot" id="n4"><img id="tool" src="reset-assets/elements/3.svg"></span>
                <h1 class="shouldSelectTool"> Altere as armas para continuar</h1> 
             </div>
             <div class="col-sm-auto">
@@ -64,9 +64,9 @@
                <img class="npc" id= "goblin" src="reset-assets/npc/goblin.svg">
             </div>
          </div>
-         <div class="row">
+         <!-- <div class="row">
             <input type="button devmode" class="btn btn-light btn-devMode" value="Modo desenvolvedor" readonly/>
-         </div>
+         </div> -->
          
       </div>
       <div class="modal fade" id="modal-gameover" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -101,18 +101,31 @@
             <div class="modal-content">
                <div class = "modal-header">
                   <div style="display: absolute;">
-                     <h4 class="modal-title display-4">Bem vindo ao treinamento, recruta!</h4>
+                     <h4 class="modal-title display-4">Olá estudante! Bem vindo ao jogo Reset!</h4>
                      <b>OBS: para abrir o tutorial (essa tela) aperte a tecla a</b>
                   </div>
                </div>
                <div class="modal-body">
                   <div class = "col-md-12">
-                     <h3>O treinamento é o seguinte:</h3>
+                     <h3>O que é esse jogo?</h3>
                      <p> 
-                        ➸  Temos um goblin capturado aqui, vamos segurar ele enquanto você treina <br>
-                        ➸  Você pode treinar no nosso saco de batatas, vamos te dar dicas de como melhorar (mas não a resposta!) <br>
-                        ➸  Depois de<b> cinco </b>testes, acreditamos que você está apto para atacar de verdade! <br> 
-                        ➸  Mas cuidado, voce só tem <b>três</b> chances de atacar corretamente!! <br>
+                        <b>Reset</b> é um jogo em que temos que construir um ataque para derrotar um monstro.<br>
+                        Preste atenção na lógica do jogo pois iremos construir testes unitários para ela.<br> 
+                        Vou te explicar como é o jogo e você pode jogar, ta certo? <br> 
+                     </p>
+                     <h3>Como jogar?</h3>
+                     <p>
+                        O jogo possui é sobre um guerreiro em treinamento para lutar contra um goblin. Para derrotar o 
+                        goblin e o treinamento ser um sucesso, o guerreiro precisa acertar uma sequencia de quatro elementos
+                        diferentes que compoem a defesa do monstro. Existem um total de seis elementos: 
+                        planta, água, fogo, ar, sol e lua.</br> </br> 
+                        
+                        Cada montro tem uma defesa composta por <b>quatro elementos aleatórios</b>.
+                        Para adivinhá-los, você primeiro escolhe qual sequencia quer utilizar no ataque e aperta o botão <b>Atacar</b>. 
+                        Mas como você tem <b>um número limitado de vidas</b> e o guerreiro ainda está sendo treinado, um boneco de treino foi 
+                        colocado para ajudar a dar dicas de como o ataque está ficando. Por isso, selecione as armas (elementos) que você deseja
+                        utilizar no ataque e pressione o botão <b>Testar</b>. Você possui 5 testes, mas para cada vida que você perde, os pontos de
+                        teste retornam a você. 
                      </p>
                      <div class = "col-md-2">
                         <img src="reset-assets/menu/monster.svg"> 
@@ -127,20 +140,12 @@
                         <p>  Esse aqui é o simbolo que indica a quantidade de ataques que  você tem.</p>
                      </div>
                   </div>
-                  <div class = "col-md-8">
-                     <h3> Como atacar?  </h3>
-                     <p> 
-                        ➸  Você precisa acertar uma combinação de 4 armas (tipo essa ali no lado) <br>
-                        ➸  Para mudar a arma, basta clicar em cima dela <br>
-                        ➸  Você precisa acertar não só as armas, mas também a posição correta delas <br> 
-                        ➸  Quando você for testar, daremos uma dica do que pode estar errado.
-                     </p>
-                  </div>
-                  <div class = "col-md-2">
-                     <div class = "col-md-2">
-                        <img src="reset-assets/tools/arma0.svg" style="height: 180px"> 
-                     </div>
-                  </div>
+                  <h3>Como utilizar as dicas?</h3>
+                  <p>
+                     • Se você acertou armas na posição correta, então você acertou um elemento e não precisa mais mexer nele! </br>
+                     • Se você acertou armas correta está no slot errado, então algum elemento está certo, mas deveria estar em outra posição.. tente colocá-lo em outro slot! 
+                  </p>
+                  
                </div>
                <div class="modal-footer">
                   <button type="button restart" class="btn btn-success" data-dismiss="modal">Estou pronto!</button>
